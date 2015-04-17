@@ -632,6 +632,38 @@ public class VideoScript extends GVRScript {
             mainScene.getMainCameraRig().getOwnerObject()
                     .addChildObject(mPassThroughObject);
 
+            /*
+             * Selective objects to keep
+             */
+            mPlayPauseButton.getRenderData().getMaterial().setTexture("active_play", mActivePlay);
+            mPlayPauseButton.getRenderData().getMaterial()
+                    .setTexture("inactive_play", mInactivePlay);
+            mPlayPauseButton.getRenderData().getMaterial().setTexture("active_pause", mActivePause);
+            mPlayPauseButton.getRenderData().getMaterial()
+                    .setTexture("inactive_pause", mInactivePause);
+
+            mFrontButton.getRenderData().getMaterial().setTexture("active_front", mActiveFront);
+            mFrontButton.getRenderData().getMaterial().setTexture("inactive_front", mInactiveFront);
+            mBackButton.getRenderData().getMaterial().setTexture("active_back", mActiveBack);
+            mBackButton.getRenderData().getMaterial().setTexture("inactive_back", mInactiveBack);
+
+            mImaxButton.getRenderData().getMaterial().setTexture("active_imax", mActiveImax);
+            mImaxButton.getRenderData().getMaterial().setTexture("inactive_imax", mInactiveImax);
+            mSelectButton.getRenderData().getMaterial().setTexture("active_select", mActiveSelect);
+            mSelectButton.getRenderData().getMaterial()
+                    .setTexture("inactive_select", mInactiveSelect);
+
+            mGlobalReorient.getRenderData().getMaterial()
+                    .setTexture("active_reorient", mActiveReorient);
+            mGlobalReorient.getRenderData().getMaterial()
+                    .setTexture("inactive_reorient", mInactiveReorient);
+            mGlobalPassthrough.getRenderData().getMaterial()
+                    .setTexture("active_passthrough", mActivePassThrough);
+            mGlobalPassthrough.getRenderData().getMaterial()
+                    .setTexture("inactive_passthrough", mInactivePassthrough);
+
+            mGlobalHome.getRenderData().getMaterial().setTexture("active_home", mActiveHome);
+            mGlobalHome.getRenderData().getMaterial().setTexture("inactive_home", mInactiveHome); 
         } catch (IOException e) {
             e.printStackTrace();
             mActivity.finish();

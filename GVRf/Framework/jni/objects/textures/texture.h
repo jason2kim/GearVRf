@@ -22,7 +22,7 @@
 #define TEXTURE_H_
 
 #include "gl/gl_texture.h"
-
+#include "util/gvr_jni.h"
 #include "objects/recyclable_object.h"
 
 namespace gvr {
@@ -41,6 +41,11 @@ public:
     }
 
     virtual GLuint getId() const {
+        if (gl_texture_ == 0) {
+            // must be recycled already. The caller will handle error.
+            LOGW("getId() but gl_texture_ == 0 Texture=%d", this);
+            return 0;
+        }
         return gl_texture_->id();
     }
 

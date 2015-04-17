@@ -84,6 +84,11 @@ void UnlitShader::render(const glm::mat4& mvp_matrix,
         std::string error = "UnlitShader::render : texture with wrong target";
         throw error;
     }
+    if (texture->getId() == 0)
+    {
+        std::string error = "UnlitShader::render : texture with invalid Id";
+        throw error;
+    }
 
 #if _GVRF_USE_GLES3_
     mesh->setVertexLoc(a_position_);
